@@ -139,15 +139,19 @@ $(document).ready(function() {
     </div>
     </div>
     <div class="row"> 
-  <p>` +
+    <div class="details col-md-8">
+  <p class="trackDescription">` +
         fields.description +
         `</p>
         <div class="officialSite"><a href="` +
         fields.trackUrl +
         `" target="_new">Official Track Site</a></div>
   </div>
+  </div>
   <div class="row">
+  <div class="details col-md-8">
   <button class="btn btn-primary home" type="button" id="homeButton">Back to Track list</button>
+  </div>
   </div>
     </div>`
     );
