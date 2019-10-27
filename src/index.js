@@ -7,36 +7,6 @@ $(document).ready(function() {
       addTrack(window.trackData[trackId]);
     }
   }
-  function addTrack(fields) {
-    console.log("adding track: " + fields.trackId);
-    $("#tracks").append(
-      `<div class="col-md-4">
-<div class="card mb-4 shadow-sm">
-  <img class="card-img-top" src="` +
-        fields.trackMap[0].url +
-        `" alt="Track image cap">
-  <div class="card-body">
-  <h5 class="card-title">` +
-        fields.trackName +
-        `</h5>
-  <p class="card-text">` +
-        fields.description +
-        `</p>
-    <div class="d-flex justify-content-between align-items-center">
-      <div class="btn-group">
-        <button type="button" class="btn btn-sm btn-outline-secondary trackView" data-trackid="` +
-        fields.trackId +
-        `">View</button>
-      </div>
-      <small class="text-muted">` +
-        fields.trackLength +
-        ` miles</small>
-    </div>
-  </div>
-</div>
-</div>`
-    );
-  }
   function listViewBase() {
     $("main").html(`<section class="jumbotron text-center">
 <div class="container">
