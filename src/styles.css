@@ -38,3 +38,30 @@ footer {
 footer p {
   margin-bottom: 0.25rem;
 }
+.trackmap-detail {
+  max-width: 100%;
+  height: auto;
+}
+
+.details h3 {
+  margin-top: 15px;
+}
+
+.bestLaptime,
+.trackLength,
+.goalLaptime {
+  font-weight: bold;
+}
+
+.bestLaptime span,
+.trackLength span,
+.goalLaptime span {
+  font-weight: normal;
+}
+
+.officialSite {
+  margin-top: 10px;
+}
+#homeButton {
+  margin-top: 25px;
+}

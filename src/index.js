@@ -5,7 +5,7 @@ $(document).ready(function() {
     $("main").html(`<section class="jumbotron text-center">
 <div class="container">
   <h1 class="jumbotron-heading">Lap times example</h1>
-  <p class="lead text-muted">Below is a list of race tracks with some basic info, and a button 
+  <p class="lead text-muted">Below is a list of race tracks I've driven on with some basic info, and a button 
   linking to the detail page for that track.</p>
 </div>
 </section>
@@ -109,6 +109,9 @@ $(document).ready(function() {
   <p>` +
         fields.description +
         `</p>
+        <div class="officialSite"><a href="` +
+        fields.trackUrl +
+        `" target="_new">Official Track Site</a></div>
   </div>
   <div class="row">
   <button class="btn btn-primary home" type="button" id="homeButton">Back to Track list</button>
@@ -120,6 +123,10 @@ $(document).ready(function() {
     });
   }
 
+  $("#home-button").click(function(e) {
+    e.preventDefault();
+    listView();
+  });
   window.trackData = [];
   $.ajax(
     "https://api.airtable.com/v0/appeCYM4x8QCX1A4M/Laptimes?api_key=keyv4QDuZMfORAFjN",
