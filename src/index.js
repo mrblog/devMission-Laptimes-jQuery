@@ -64,6 +64,7 @@ $(document).ready(function() {
   }
 
   function fmtMSS(s) {
+    s = Math.round(s);
     return (s - (s %= 60)) / 60 + (9 < s ? ":" : ":0") + s;
   }
 
