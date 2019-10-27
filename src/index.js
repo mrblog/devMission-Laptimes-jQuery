@@ -19,7 +19,9 @@ $(document).ready(function() {
 </div>
 </div>
 `);
-    $.each(window.trackData, addTrack);
+    for (var trackId in window.trackData) {
+      addTrack(window.trackData[trackId]);
+    }
   }
   function addTrack(fields) {
     console.log("adding track: " + fields.trackId);
@@ -42,7 +44,9 @@ $(document).ready(function() {
         fields.trackId +
         `">View</button>
       </div>
-      <small class="text-muted">9 mins</small>
+      <small class="text-muted">` +
+        fields.trackLength +
+        ` miles</small>
     </div>
   </div>
 </div>
@@ -52,6 +56,67 @@ $(document).ready(function() {
       var trackId = $(this).data("trackid");
       console.log("track clicked: " + trackId);
       console.log("name: " + window.trackData[trackId].trackName);
+      viewTrack(window.trackData[trackId]);
+    });
+  }
+
+  function fmtMSS(s) {
+    return (s - (s %= 60)) / 60 + (9 < s ? ":" : ":0") + s;
+  }
+
+  function viewTrack(fields) {
+    var goalSpeed = (fields.trackLength / fields.goalLaptime) * 3600;
+    var bestSpeed = (fields.trackLength / fields.bestLaptime) * 3600;
+    var percent = (Math.round((bestSpeed / goalSpeed) * 100) / 100) * 100;
+    console.log("goalSpeed: " + goalSpeed + " bestSpeed: " + bestSpeed);
+    $("main").html(
+      `<div class="container">
+    <div class="row">
+    <div class="col-md-4">
+    <img src="` +
+        fields.trackMap[0].thumbnails.large.url +
+        `" alt="Track map" class="trackmap-detail">
+    </div>
+    <div class="details col-md-8">
+    <h3>` +
+        fields.trackName +
+        `</h3>
+    <h6 class="trackLength">Distance: <span>` +
+        fields.trackLength +
+        ` miles </span></h6>
+    <h6 class="bestLaptime">Best lap: <span>` +
+        fmtMSS(fields.bestLaptime) +
+        ` </span></h6>
+    <h6 class="goalLaptime">Goal lap: <span>` +
+        fmtMSS(fields.goalLaptime) +
+        ` </span></h6>
+    <div class="progress">
+  <div class="progress-bar" role="progressbar" aria-valuenow="` +
+        percent +
+        `"
+  aria-valuemin="0" aria-valuemax="100" style="width:` +
+        percent +
+        `%">
+    ` +
+        percent +
+        `%
+  </div>
+  
+</div>
+    </div>
+    </div>
+    <div class="row"> 
+  <p>` +
+        fields.description +
+        `</p>
+  </div>
+  <div class="row">
+  <button class="btn btn-primary home" type="button" id="homeButton">Back to Track list</button>
+  </div>
+    </div>`
+    );
+    $("#homeButton").click(function() {
+      listView();
     });
   }
 
@@ -67,11 +132,10 @@ $(document).ready(function() {
           console.log(i + ": id: " + row.fields.trackId);
           if (row.fields.trackId) {
             window.trackData[row.fields.trackId] = row.fields;
-            addTrack(row.fields);
           }
         }
+        listView();
       }
     }
   );
-  listView();
 });
