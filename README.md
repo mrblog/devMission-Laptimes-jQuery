@@ -18,4 +18,4 @@ Clicking the _View_ button for a track will present a detailed view for that tra
 
 ### Demo deployment
 
-https://bd706.csb.app/
+https://bd706.codesandbox.io

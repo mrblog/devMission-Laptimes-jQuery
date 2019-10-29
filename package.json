@@ -1,7 +1,7 @@
 {
-  "name": "parcel-sandbox",
+  "name": "dev-mission-intro-webapp",
   "version": "1.0.0",
-  "description": "Simple Parcel Sandbox",
+  "description": "Lap Times Webapp",
   "main": "index.html",
   "scripts": {
     "start": "parcel index.html --open",
@@ -14,5 +14,6 @@
   "devDependencies": {
     "@babel/core": "7.2.0",
     "parcel-bundler": "^1.6.1"
-  }
+  },
+  "keywords": []
 }
