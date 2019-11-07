@@ -43,8 +43,9 @@ footer p {
   height: auto;
 }
 
-.details h3 {
+.details button {
   margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .bestLaptime,
@@ -65,4 +66,10 @@ footer p {
 #homeButton,
 .trackDescription {
   margin-top: 25px;
+}
+
+.album {
+  background-image: url("images/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
