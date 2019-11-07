@@ -4,9 +4,9 @@ import $ from "jquery";
 $(document).ready(function() {
   function listView() {
     listViewBase();
-    for (var trackId in window.trackData) {
-      addTrack(window.trackData[trackId]);
-    }
+    $.each(window.trackData, function(trackId, fields) {
+      addTrack(fields);
+    });
   }
   function listViewBase() {
     $("main").html(`<section class="jumbotron text-center">
@@ -139,21 +139,20 @@ $(document).ready(function() {
 
   listViewBase();
 
-  window.trackData = [];
+  window.trackData = {};
   $.ajax(
     "https://api.airtable.com/v0/appeCYM4x8QCX1A4M/Laptimes?api_key=keyv4QDuZMfORAFjN",
     {
       dataType: "json",
       success: function(data) {
         console.log("records: " + data.records.length);
-        for (var i = 0; i < data.records.length; i++) {
-          var row = data.records[i];
+        $.each(data.records, function(i, row) {
           console.log(i + ": id: " + row.fields.trackId);
           if (row.fields.trackId) {
             window.trackData[row.fields.trackId] = row.fields;
             addTrack(row.fields);
           }
-        }
+        });
       }
     }
   );
