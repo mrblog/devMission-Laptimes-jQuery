@@ -32,25 +32,18 @@ $(document).ready(function() {
     $("#tracks").append(
       `<div class="col-md-4">
 <div class="card mb-4 shadow-sm">
-  <img class="card-img-top" src="` +
-        fields.trackMap[0].url +
-        `" alt="Track image cap">
+  <img class="card-img-top" src="${
+    fields.trackMap[0].url
+  }" alt="Track image cap">
   <div class="card-body">
-  <h5 class="card-title">` +
-        fields.trackName +
-        `</h5>
-  <p class="card-text">` +
-        fields.description +
-        `</p>
+  <h5 class="card-title">${fields.trackName}</h5>
+  <p class="card-text">${fields.description}</p>
     <div class="d-flex justify-content-between align-items-center">
       <div class="btn-group">
-        <button type="button" class="btn btn-sm btn-outline-secondary trackView" data-trackid="` +
-        fields.trackId +
-        `">View</button>
+        <button type="button" class="btn btn-sm btn-outline-secondary trackView" 
+        data-trackid="${fields.trackId}">View</button>
       </div>
-      <small class="text-muted">` +
-        fields.trackLength +
-        ` miles</small>
+      <small class="text-muted">${fields.trackLength} miles</small>
     </div>
   </div>
 </div>
@@ -78,33 +71,25 @@ $(document).ready(function() {
       `<div class="container">
     <div class="row">
     <div class="col-md-4">
-    <img src="` +
-        fields.trackMap[0].thumbnails.large.url +
-        `" alt="Track map" class="trackmap-detail">
+    <img src="${
+      fields.trackMap[0].thumbnails.large.url
+    }" alt="Track map" class="trackmap-detail">
     </div>
     <div class="details col-md-8">
-    <h3>` +
-        fields.trackName +
-        `</h3>
-    <h6 class="trackLength">Distance: <span>` +
-        fields.trackLength +
-        ` miles </span></h6>
-    <h6 class="bestLaptime">Best lap: <span>` +
-        fmtMSS(fields.bestLaptime) +
-        ` </span></h6>
-    <h6 class="goalLaptime">Goal lap: <span>` +
-        fmtMSS(fields.goalLaptime) +
-        ` </span></h6>
+    <h3>${fields.trackName}</h3>
+    <h6 class="trackLength">Distance: <span>${
+      fields.trackLength
+    } miles </span></h6>
+    <h6 class="bestLaptime">Best lap: <span>${fmtMSS(
+      fields.bestLaptime
+    )} </span></h6>
+    <h6 class="goalLaptime">Goal lap: <span>${fmtMSS(
+      fields.goalLaptime
+    )}</span></h6>
     <div class="progress">
-  <div class="progress-bar" role="progressbar" aria-valuenow="` +
-        percent +
-        `"
-  aria-valuemin="0" aria-valuemax="100" style="width:` +
-        percent +
-        `%">
-    ` +
-        percent +
-        `%
+  <div class="progress-bar" role="progressbar" aria-valuenow="${percent}"
+  aria-valuemin="0" aria-valuemax="100" style="width: ${percent}%">
+    ${percent}%
   </div>
   
 </div>
@@ -112,12 +97,10 @@ $(document).ready(function() {
     </div>
     <div class="row"> 
     <div class="details col-md-8">
-  <p class="trackDescription">` +
-        fields.description +
-        `</p>
-        <div class="officialSite"><a href="` +
-        fields.trackUrl +
-        `" target="_new">Official Track Site</a></div>
+  <p class="trackDescription">${fields.description}</p>
+        <div class="officialSite"><a href="${
+          fields.trackUrl
+        }" target="_new">Official Track Site</a></div>
   </div>
   </div>
   <div class="row">
